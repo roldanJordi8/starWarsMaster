@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../models/user';
@@ -9,6 +9,7 @@ import { User } from '../models/user';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild('alert') alert: ElementRef;
 
   newUser: User = {
     firstName: '',
@@ -17,6 +18,7 @@ export class RegisterComponent implements OnInit {
     password: null
   };
   submitted = false;
+  users: User[];
 
   constructor(
     private route: ActivatedRoute,
@@ -24,31 +26,31 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.users = JSON.parse(localStorage.getItem('LocalBBDDUsers'));
   }
 
   registerUser(myForm: NgForm): void {
     this.submitted = true;
-    if (myForm.valid) {
+    if (myForm.valid && this.checkUsername()) {
       this.submitted = false;
+      this.users.push(this.newUser);
+      localStorage.setItem('LocalBBDDUsers', JSON.stringify(this.users));
       this.router.navigate(['../'], { relativeTo: this.route });
-
     }
-    // if (this.user.isExternal) {
-    //   user.languages.map(a => a.isTranslator = true);
-    // }
-    // if (this.user.name !== "" && this.user.email !== "") {
-    //   this.usersService
-    //     .updateUser(user)
-    //     .pipe(
-    //       catchMessageError(error => {
-    //         this.notifierService.warning(error);
-    //       })
-    //     )
-    //     .subscribe(() => {
-    //       this.router.navigate(["../"], { relativeTo: this.route });
-    //     });
-    // }
 
   }
 
+  checkUsername(): boolean {
+    if (this.users.find(a => a.userName === this.newUser.userName)) {
+      this.alert.nativeElement.classList.add('show');
+      this.alert.nativeElement.classList.remove('fade');
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  closeAlert(): void {
+    this.alert.nativeElement.classList.add('fade');
+  }
 }
