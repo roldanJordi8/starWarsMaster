@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { ShipsComponent } from './ships/ships.component';
 import { StarshipsListComponent } from './ships/starships-list/starships-list.component';
 import { StarshipComponent } from './ships/starships-list/starship/starship.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StarshipComponent } from './ships/starships-list/starship/starship.comp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
