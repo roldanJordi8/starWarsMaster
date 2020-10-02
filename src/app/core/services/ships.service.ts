@@ -7,7 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
 export class ShipsService {
   constructor(private httpClient: HttpClient) { }
 
-  public getStarShips(): Observable<any> {
-    return this.httpClient.get('https://swapi.dev/api/starships/?page=1');
+  public getStarShips(url: string): Observable<any> {
+    return this.httpClient.get(url);
   }
 }

@@ -16,17 +16,35 @@ export interface ShipsData {
 })
 export class ShipsComponent implements OnInit {
 
-  starShips;
+  starShips = [];
   loading = true;
+  page = 1;
+  firstPageURL = 'https://swapi.dev/api/starships/?page=1';
 
   constructor(private shipsService: ShipsService) { }
 
   ngOnInit(): void {
-    this.shipsService.getStarShips().subscribe((data: ShipsData) => {
-      this.starShips = data;
+    this.getStarShipsPage(this.firstPageURL);
+  }
+
+  getStarShipsPage(url): void {
+    this.shipsService.getStarShips(url).subscribe((data: ShipsData) => {
+      this.starShips.push(data);
+      if (data.next !== null) {
+        this.getStarShipsPage(data.next);
+      }
       this.loading = false;
-      console.log(this.starShips);
     });
   }
+
+  prevPage(): void {
+    this.page--;
+  }
+
+  nextPage(): void {
+    this.page++;
+  }
+
+
 
 }
