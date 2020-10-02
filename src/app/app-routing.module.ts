@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/guard/admin-auth.guard';
-import { FakeNavigationComponent } from './fake-navigation/fake-navigation.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ShipsComponent } from './ships/ships.component';
+import { FakeNavigationComponent } from './components/fake-navigation/fake-navigation.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ShipsComponent } from './components/ships/ships.component';
 
 const routes: Routes = [
   {

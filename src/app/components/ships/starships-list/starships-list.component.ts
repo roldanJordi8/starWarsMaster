@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Starship } from 'src/app/models/starship';
 
 @Component({
   selector: 'app-starships-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./starships-list.component.scss']
 })
 export class StarshipsListComponent implements OnInit {
+
+  @Input() starShips: Starship[];
 
   constructor() { }
 
