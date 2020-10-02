@@ -9,9 +9,17 @@ import { Starship } from 'src/app/models/starship';
 export class StarshipComponent implements OnInit {
 
   @Input() starShip: Starship;
+  idStarShip: number;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.extractIdStarShip();
+  }
+
+  extractIdStarShip(): void {
+    const arraySplit = this.starShip.url.split('/');
+    this.idStarShip = +arraySplit[arraySplit.length - 2];
   }
 
 }

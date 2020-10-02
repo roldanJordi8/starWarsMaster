@@ -1,18 +1,10 @@
 <div class="panel panel-default ship">
   <div class="panel-heading">
-    <!-- <h3 class="panel-title">{{ $ctrl.starship.name}}</h3> -->
     <h3 class="panel-title">{{starShip.name}}</h3>
   </div>
   <div class="panel-body">
-    <!-- <img src={{starShip.url}}> -->
-
-    <!-- <img ng-src="https://starwars-visualguide.com/assets/img/starships/{{$ctrl.shipId}}.jpg"> -->
+    <img src="https://starwars-visualguide.com/assets/img/starships/{{idStarShip}}.jpg"
+      onerror="this.src='https://starwars-visualguide.com/assets/img/placeholder.jpg'">
   </div>
+
 </div>
-
-{{starShip|json}}
-
-<!-- <div style="height: 150px; background-color: blue; margin: 10px;">
-
-
-</div> -->
