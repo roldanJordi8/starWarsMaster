@@ -9,6 +9,7 @@ import { ShipsComponent } from './ships/ships.component';
 import { StarshipsListComponent } from './ships/starships-list/starships-list.component';
 import { StarshipComponent } from './ships/starships-list/starship/starship.component';
 import { FormsModule } from '@angular/forms';
+import { FakeNavigationComponent } from './fake-navigation/fake-navigation.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     ShipsComponent,
     StarshipsListComponent,
-    StarshipComponent
+    StarshipComponent,
+    FakeNavigationComponent
   ],
   imports: [
     BrowserModule,

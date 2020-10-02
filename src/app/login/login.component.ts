@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.users = JSON.parse(localStorage.getItem('LocalBBDDUsers'));
     localStorage.setItem('UserLogin', JSON.stringify([]));
-    console.log(this.users);
   }
 
   loginUser(myForm: NgForm): void {
