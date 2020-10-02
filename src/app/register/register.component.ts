@@ -32,12 +32,11 @@ export class RegisterComponent implements OnInit {
   registerUser(myForm: NgForm): void {
     this.submitted = true;
     if (myForm.valid && this.checkUsername()) {
-      this.submitted = false;
       this.users.push(this.newUser);
+      this.submitted = false;
       localStorage.setItem('LocalBBDDUsers', JSON.stringify(this.users));
       this.router.navigate(['../'], { relativeTo: this.route });
     }
-
   }
 
   checkUsername(): boolean {

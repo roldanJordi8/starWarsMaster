@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     firstName: '',
     lastName: '',
     userName: '',
-    password: null
+    password: ''
   };
   users: User[];
 
@@ -27,15 +27,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.users = JSON.parse(localStorage.getItem('LocalBBDDUsers'));
+    localStorage.setItem('UserLogin', JSON.stringify([]));
     console.log(this.users);
   }
 
   loginUser(myForm: NgForm): void {
     this.submitted = true;
     if (myForm.valid && this.checkLogin()) {
-      this.submitted = false;
       this.router.navigate(['../ships'], { relativeTo: this.route });
     }
+    this.submitted = false;
+
   }
 
   closeAlert(): void {
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit {
 
   checkLogin(): boolean {
     if (this.users.find(a => a.userName === this.user.userName && a.password === this.user.password)) {
+      localStorage.setItem('UserLogin', JSON.stringify(this.user));
       return true;
     } else {
       this.alert.nativeElement.classList.add('show');
