@@ -11,6 +11,8 @@ import { StarshipComponent } from './components/ships/starships-list/starship/st
 import { FormsModule } from '@angular/forms';
 import { FakeNavigationComponent } from './components/fake-navigation/fake-navigation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeMenuComponent } from './components/home-menu/home-menu.component';
+import { StarshipDetailsComponent } from './components/ships/starship-details/starship-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     ShipsComponent,
     StarshipsListComponent,
     StarshipComponent,
-    FakeNavigationComponent
+    FakeNavigationComponent,
+    HomeMenuComponent,
+    StarshipDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Starship } from 'src/app/models/starship';
 
 @Component({
@@ -11,7 +12,10 @@ export class StarshipComponent implements OnInit {
   @Input() starShip: Starship;
   idStarShip: number;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.extractIdStarShip();
@@ -20,6 +24,10 @@ export class StarshipComponent implements OnInit {
   extractIdStarShip(): void {
     const arraySplit = this.starShip.url.split('/');
     this.idStarShip = +arraySplit[arraySplit.length - 2];
+  }
+
+  openStarshipDetails(): void {
+    this.router.navigate(['../', this.idStarShip], { relativeTo: this.route });
   }
 
 }

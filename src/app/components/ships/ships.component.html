@@ -1,19 +1,5 @@
 <div>
-  <div class="header-wrap">
-    <header itx-scroll class="ma-header">
-      <nav class="ma-menu">
-        <ul class="ma-menu-wrap">
-          <li>
-            <a class="ma-bicolor ma-btn-women ma-menu-primary-link ma-women-link" href="/fakeNavigation">FAKE NAVIGATION</a>
-          </li>
-          <li>
-            <a class="ma-bicolor ma-btn-men ma-menu-primary-link ma-men-link" href="/ships">SHIPS</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-  </div>
+  <app-home-menu></app-home-menu>
   <div class="ships-items">
     <div class="pagination fs-subhead justify-content-center" *ngIf="starShips.length > 1">
       <button class="btn btn--s btn--white btn--raised chevron mx-2" [hidden]="page===1" (click)="prevPage()">Prev</button>

@@ -5,6 +5,8 @@ import { FakeNavigationComponent } from './components/fake-navigation/fake-navig
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ShipsComponent } from './components/ships/ships.component';
+import { StarshipDetailsComponent } from './components/ships/starship-details/starship-details.component';
+import { StarshipsListComponent } from './components/ships/starships-list/starships-list.component';
 
 const routes: Routes = [
   {
@@ -17,8 +19,22 @@ const routes: Routes = [
   },
   {
     path: 'ships',
-    component: ShipsComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'list',
+        component: ShipsComponent
+      },
+      {
+        path: ':id',
+        component: StarshipDetailsComponent
+      },
+      {
+        path: '',
+        redirectTo: '/login',
+        pathMatch: 'full'
+      }
+    ]
   },
   {
     path: 'fakeNavigation',

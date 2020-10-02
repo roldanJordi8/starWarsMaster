@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   loginUser(myForm: NgForm): void {
     this.submitted = true;
     if (myForm.valid && this.checkLogin()) {
-      this.router.navigate(['../ships'], { relativeTo: this.route });
+      this.router.navigate(['../ships/list'], { relativeTo: this.route });
     }
     this.submitted = false;
 

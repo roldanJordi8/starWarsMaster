@@ -10,4 +10,9 @@ export class ShipsService {
   public getStarShips(url: string): Observable<any> {
     return this.httpClient.get(url);
   }
+
+  public getStarShip(id): Observable<any> {
+    return this.httpClient.get('https://swapi.dev/api/starships/' + id);
+  }
+
 }
