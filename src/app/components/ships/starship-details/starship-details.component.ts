@@ -13,6 +13,7 @@ export class StarshipDetailsComponent implements OnInit {
   starShipId: number;
   starShip: Starship;
   loading = false;
+  detailsOpened = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +31,10 @@ export class StarshipDetailsComponent implements OnInit {
       this.loading = false;
     });
 
+  }
+
+  collapseDetails(): void {
+    this.detailsOpened = !this.detailsOpened;
   }
 
 }

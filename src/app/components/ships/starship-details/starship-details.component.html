@@ -1,6 +1,55 @@
 <div>
   <app-home-menu></app-home-menu>
-  <div>
+  <div class="pl-5 pt-2">
+    <div>
+      <a class="btn-return" href="../ships/list">RETURN</a>
+    </div>
+    <div *ngIf="!loading">
+      <div class="row pt-2">
+        <div class="col-">
+          <img src="https://starwars-visualguide.com/assets/img/starships/{{starShipId}}.jpg"
+            onerror="this.src='https://starwars-visualguide.com/assets/img/placeholder.jpg'">
+        </div>
+        <div class="col-4 text-center">
+          <div class="font-weight-bold py-2">
+            <span>{{starShip.name}}</span>
+          </div>
+          <div class="py-2">
+            <span>{{starShip.cost_in_credits | number}} credits</span>
+          </div>
+          <div class="accordion mt-3" id="accordionDetails">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h1 class="mb-0 collapseTitle" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse"
+                  (click)="collapseDetails()">
+                  <a class="btn">
+                    Details
+                  </a>
+                  <span style="float: right;" *ngIf="detailsOpened">+</span>
+                  <span style="float: right;" *ngIf="!detailsOpened">-</span>
+                </h1>
+              </div>
 
+              <div id="collapse" class="collapse" aria-labelledby="headingOne" data-parent="#accordionDetails">
+                <div class="card-body">
+                  <div>Model: {{starShip.model}}</div>
+                  <div>Manufacturer: {{starShip.manufacturer}}</div>
+                  <div>Class: {{starShip.starship_class | number}}</div>
+                  <div>Speed: {{starShip.max_atmosphering_speed}} km/h</div>
+                  <div>Hyperdrive Rating: {{starShip.hyperdrive_rating}}</div>
+                  <div>MGLT: {{starShip.MGLT | number}}</div>
+                  <div>Length: {{starShip.length | number}}m</div>
+                  <div>Cargo Capacity: {{starShip.cargo_capacity}} metric tons</div>
+                  <div>Mimimum Crew: {{starShip.crew | number}}</div>
+                  <div>Passengers: {{starShip.passengers | number}}</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

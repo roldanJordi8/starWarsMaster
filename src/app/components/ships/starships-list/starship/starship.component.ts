@@ -10,7 +10,7 @@ import { Starship } from 'src/app/models/starship';
 export class StarshipComponent implements OnInit {
 
   @Input() starShip: Starship;
-  idStarShip: number;
+  starShipId: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,11 +23,11 @@ export class StarshipComponent implements OnInit {
 
   extractIdStarShip(): void {
     const arraySplit = this.starShip.url.split('/');
-    this.idStarShip = +arraySplit[arraySplit.length - 2];
+    this.starShipId = +arraySplit[arraySplit.length - 2];
   }
 
   openStarshipDetails(): void {
-    this.router.navigate(['../', this.idStarShip], { relativeTo: this.route });
+    this.router.navigate(['../', this.starShipId], { relativeTo: this.route });
   }
 
 }

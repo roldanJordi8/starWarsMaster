@@ -13,6 +13,8 @@ import { FakeNavigationComponent } from './components/fake-navigation/fake-navig
 import { HttpClientModule } from '@angular/common/http';
 import { HomeMenuComponent } from './components/home-menu/home-menu.component';
 import { StarshipDetailsComponent } from './components/ships/starship-details/starship-details.component';
+import { NumberPipe } from './pipes/number.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { StarshipDetailsComponent } from './components/ships/starship-details/st
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
