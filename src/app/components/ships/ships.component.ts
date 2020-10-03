@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { ShipsService } from '../../core/services/ships.service';
@@ -18,6 +19,7 @@ export class ShipsComponent implements OnInit {
 
   starShips = [];
   loading = true;
+  APIerror = false;
   page = 1;
   firstPageURL = 'https://swapi.dev/api/starships/?page=1';
 
@@ -34,7 +36,11 @@ export class ShipsComponent implements OnInit {
         this.getStarShipsPage(data.next);
       }
       this.loading = false;
-    });
+    },
+      (error: HttpErrorResponse) => {
+        this.loading = false;
+        this.APIerror = true;
+      });
   }
 
   prevPage(): void {

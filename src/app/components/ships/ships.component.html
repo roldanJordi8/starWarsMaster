@@ -7,9 +7,9 @@
         (click)="page=i+1">{{i + 1}}</button>
       <button class="btn btn--s btn--white btn--raised chevron mx-2" [hidden]="page===starShips.length" (click)="nextPage()">Next</button>
     </div>
-    <app-starships-list *ngIf="!loading" [starShips]="starShips[page - 1].results"></app-starships-list>
-    <!-- <div class="alert alert-danger" role="alert">
-      Hi ha hagut un error al fer la petició
-    </div> -->
+    <app-starships-list *ngIf="!loading && !APIerror" [starShips]="starShips[page - 1].results"></app-starships-list>
+    <div class="alert alert-danger mt-4" *ngIf="!loading && APIerror" role="alert">
+      There was a request error
+    </div>
   </div>
 </div>

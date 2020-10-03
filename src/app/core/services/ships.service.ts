@@ -15,4 +15,8 @@ export class ShipsService {
     return this.httpClient.get('https://swapi.dev/api/starships/' + id);
   }
 
+  public getStarShipsFakeError(): Observable<any> {
+    return this.httpClient.get('https://swapi.dev/api/starships/16');
+  }
+
 }
