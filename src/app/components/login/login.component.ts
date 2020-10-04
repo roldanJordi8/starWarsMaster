@@ -9,7 +9,6 @@ import { User } from '../../models/user';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('alert', { static: true }) alert: ElementRef;
 
   submitted = false;
   user: User = {
@@ -19,6 +18,8 @@ export class LoginComponent implements OnInit {
     password: ''
   };
   users: User[];
+  fieldTextType = false;
+  errorLogin = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,12 +36,10 @@ export class LoginComponent implements OnInit {
     if (myForm.valid && this.checkLogin()) {
       this.router.navigate(['../ships/list'], { relativeTo: this.route });
     }
-    this.submitted = false;
-
   }
 
   closeAlert(): void {
-    this.alert.nativeElement.classList.add('fade');
+    this.errorLogin = false;
   }
 
   checkLogin(): boolean {
@@ -48,10 +47,13 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('UserLogin', JSON.stringify(this.user));
       return true;
     } else {
-      this.alert.nativeElement.classList.add('show');
-      this.alert.nativeElement.classList.remove('fade');
+      this.errorLogin = true;
       return false;
     }
+  }
+
+  toggleFieldTextType(): void {
+    this.fieldTextType = !this.fieldTextType;
   }
 
 }
