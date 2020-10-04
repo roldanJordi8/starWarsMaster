@@ -19,6 +19,8 @@ export class RegisterComponent implements OnInit {
   };
   submitted = false;
   users: User[];
+  fieldTextType = false;
+  usernameTook = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,8 +43,7 @@ export class RegisterComponent implements OnInit {
 
   checkUsername(): boolean {
     if (this.users.find(a => a.userName === this.newUser.userName)) {
-      this.alert.nativeElement.classList.add('show');
-      this.alert.nativeElement.classList.remove('fade');
+      this.usernameTook = true;
       return false;
     } else {
       return true;
@@ -50,6 +51,10 @@ export class RegisterComponent implements OnInit {
   }
 
   closeAlert(): void {
-    this.alert.nativeElement.classList.add('fade');
+    this.usernameTook = false;
+  }
+
+  toggleFieldTextType(): void {
+    this.fieldTextType = !this.fieldTextType;
   }
 }
