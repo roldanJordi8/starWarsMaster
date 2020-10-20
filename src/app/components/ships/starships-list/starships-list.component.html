@@ -1,5 +1,5 @@
 <div>
-  <div class="row" *ngIf="starShips.length > 0">
+  <div class="row justify-content-center" *ngIf="starShips.length > 0">
     <div class="col-lg-2 col-12 mb-3" *ngFor="let starShip of starShips" style="margin-right: 10px;">
       <app-starship [starShip]="starShip"></app-starship>
     </div>

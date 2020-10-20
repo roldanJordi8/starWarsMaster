@@ -10,11 +10,23 @@
   font-family: "BasisGrotesque-Bold-Pro" !important;
   border-bottom: 1px solid #eaeaea;
   display: flex;
+  position: fixed;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.ma-header{
+  width: 100%;
 }
 
 .ma-menu-wrap{
   padding: 24px 16px;
   line-height: 24px;
+  width: 100%;
+  li:last-child
+  {
+    float:right;
+  }
 }
 
 .ma-menu-wrap li a:hover{

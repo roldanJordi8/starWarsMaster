@@ -1,12 +1,12 @@
 <div>
   <app-home-menu></app-home-menu>
-  <div class="pl-5 pt-2">
+  <div class="detailsShip">
     <div>
       <a class="btn-back" href="../ships/list">BACK</a>
     </div>
     <div *ngIf="!loading">
       <div class="row pt-2">
-        <div class="col-">
+        <div class="col-6">
           <img src="https://starwars-visualguide.com/assets/img/starships/{{starShipId}}.jpg"
             onerror="this.src='https://starwars-visualguide.com/assets/img/placeholder.jpg'">
         </div>

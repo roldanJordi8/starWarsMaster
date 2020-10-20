@@ -1,10 +1,9 @@
-<div class="panel panel-default ship" (click)="openStarshipDetails()">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{starShip.name}}</h3>
-  </div>
-  <div class="panel-body">
+<div class="pb-5 starship">
+  <div class="text-center" (click)="openStarshipDetails()">
     <img src="https://starwars-visualguide.com/assets/img/starships/{{starShipId}}.jpg"
       onerror="this.src='https://starwars-visualguide.com/assets/img/placeholder.jpg'">
   </div>
-
+  <div class="my-3 ship-name">
+    <span>{{starShip.name}}</span>
+  </div>
 </div>
